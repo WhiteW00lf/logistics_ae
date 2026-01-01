@@ -1,0 +1,26 @@
+version: 2 
+models:
+  - name: stg_orders
+    description: "Cleaned canonical orders table"
+    columns:
+      - name: order_id
+        description: "Primary key of the model"
+        tests:
+          - not_null
+          - unique
+      - name: customer_id
+        description: "Foreign key to the customers table"
+        tests:
+          - not_null
+      - name: order_date
+        description: "Date when the order was placed"
+        tests:
+          - not_null
+      - name: payment_type
+        description: "Type of payment used for the order"
+        tests:
+          - not_null
+      - name: order_value
+        description: "Total value of the order"
+        tests:
+          - not_null  

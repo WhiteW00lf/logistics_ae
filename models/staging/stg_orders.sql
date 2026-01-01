@@ -1,0 +1,23 @@
+WITH ranked AS(
+
+    SELECT ORDER_ID,
+    CUSTOMER_ID,
+    try_to_date(ORDER_DATE, 'DD-MM-YYYY') AS ORDER_DATE,
+    PAYMENT_TYPE,
+    ORDER_VALUE,
+    ROW_NUMBER() OVER (PARTITION BY ORDER_ID 
+    ORDER BY try_to_date(ORDER_DATE, 'DD-MM-YYYY') DESC,
+    ORDER_VALUE DESC) AS rn
+
+FROM {{source('raw','orders')}} 
+WHERE try_to_date(ORDER_DATE, 'DD-MM-YYYY') IS NOT NULL
+)
+
+SELECT 
+    ORDER_ID,
+    CUSTOMER_ID,
+    ORDER_DATE,
+    PAYMENT_TYPE,
+    ORDER_VALUE
+FROM ranked
+WHERE rn = 1
