@@ -12,3 +12,33 @@ sources:
       - name: customers
       - name: hubs  
       - name: costs
+
+models:
+  - name: stg_shipments
+    description: "Cleaned shipment data with standardized columns."
+    columns:
+      - name: shipment_id
+        description: "Unique identifier for each shipment."
+        tests:
+          - unique
+          - not_null
+
+      - name: order_id
+        description: "Identifier linking to the corresponding order."
+        tests:
+          - not_null
+
+      - name: promised_days
+        description: "Number of days promised for delivery."
+        tests:
+          - not_null
+
+      - name: shipped_date
+        description: "Date when the shipment was sent."
+        tests:
+          - not_null
+
+      - name: delivered_date
+        description: "Date when the shipment was delivered."
+      
+  
