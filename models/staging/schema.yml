@@ -40,5 +40,29 @@ models:
 
       - name: delivered_date
         description: "Date when the shipment was delivered."
-      
-  
+
+  - name: stg_customers
+    description: "Cleaned customer data with standardized columns."
+    columns:
+      - name: customer_id
+        description: "Unique identifier for each customer."
+        tests:
+          - unique
+          - not_null
+
+      - name: signup_date
+        description: "Date when the customer signed up."
+        tests:
+          - not_null
+
+      - name: customer_type
+        description: "Type of customer (e.g., regular, premium)."
+        tests:
+          - not_null
+
+      - name: loyalty_status
+        description: "Loyalty status of the customer (e.g., gold, silver)."
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['yes','no']
