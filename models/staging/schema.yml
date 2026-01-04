@@ -66,3 +66,22 @@ models:
           - not_null
           - accepted_values:
               values: ['yes','no']
+
+
+  - name: stg_hubs
+    description: "Cleaned hub data with standardized columns."
+    columns:
+      - name: hub_id
+        description: "Unique identifier for each hub."
+        tests:
+          - not_null
+
+      - name: hub_city
+        description: "City where the hub is located."
+        tests:
+          - not_null
+
+      - name: daily_shipment_capacity
+        description: "Daily shipment capacity of the hub."
+        tests:
+          - not_null
