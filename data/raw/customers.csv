@@ -1,5 +1,5 @@
 customer_id,signup_date,customer_type,loyalty_status
-180,01-03-2025,Retail,Yes
+180,01-03-2025,Enterprise,No
 275,10-05-2025,Enterprise,Yes
 442,01-06-2025,Enterprise,Yes
 233,20-04-2025,Retail,No
