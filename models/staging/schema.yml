@@ -85,3 +85,21 @@ models:
         description: "Daily shipment capacity of the hub."
         tests:
           - not_null
+
+  - name: stg_costs
+    description: "Cleaned cost data with standardized columns."
+    columns:
+      - name: hub_id
+        description: "Unique identifier for each hub."
+        tests:
+          - not_null
+
+      - name: month_year
+        description: "Month and year of the cost record."
+        tests:
+          - not_null
+
+      - name: operating_costs
+        description: "Operating costs for the hub in the given month."
+        tests:
+          - not_null
