@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: fct_shipments
+    description: >
+      Fact table at shipment grain capturing delivery performance,
+      SLA compliance, and allocated hub operating costs.
+    columns:
+      - name: shipment_id
+        description: "Unique shipment identifier."
+        tests:
+          - not_null
+          - unique
+
+      - name: hub_id
+        description: "Hub responsible for the shipment."
+        tests:
+          - not_null
+
+      - name: customer_id
+        description: "Customer associated with the shipment."
+
+      - name: shipped_date
+        description: "Date the shipment was shipped."
+        tests:
+          - not_null
+
+      - name: delivered_date
+        description: "Date the shipment was delivered."
+
+      - name: promised_days
+        description: "Number of days promised for delivery."
