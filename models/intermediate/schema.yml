@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: int_delivery_metrics
+    description: "Shipment-level delivery performance metrics."
+    columns:
+      - name: shipment_id
+        description: "Unique shipment identifier."
+        tests:
+          - not_null
+          - unique
+
+      - name: delivery_delay_days
+        description: "Days delayed relative to SLA."
+
+      - name: is_sla_breached
+        description: "Whether the shipment breached SLA."
+        tests:
+          - accepted_values:
+              values: [true, false]
